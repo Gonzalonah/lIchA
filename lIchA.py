@@ -1,8 +1,21 @@
-import speech_recognition as sr
+""" https://articulo.mercadolibre.com.ar/MLA-1127613564-microfono-grabacion-condenser-podcast-consola-efectos-placa-_JM?searchVariation=174303228528#searchVariation=174303228528&position=41&search_layout=stack&type=item&tracking_id=1d3cfdeb-58dc-40f4-b874-698a23532fa3 para seguir con licha
+"""
 import pyttsx3
 import pywhatkit
+import speech_recognition as sr
 
-engine = pyttsx3.init()
+listener = sr.Recognizer()
+
+try:
+    with sr.Microphone() as source:
+        print('Escuchando....')
+        voice = listener.listen(source)
+        rec = listener.recognize_google(voice)
+        print(rec)
+except:
+    pass
+
+""" engine = pyttsx3.init()
 engine.say("I will speak this text")
 engine.runAndWait()
 
@@ -44,3 +57,4 @@ def run_licha():
             pywhatkit.playonyt(a)
 if __name__ == '__main__':
     run_licha()
+ """
